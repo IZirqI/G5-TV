@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <title>G5 TV</title>
+  <style>
+    :root { color-scheme: dark; --bg:#090b10; --panel:#11151d; --line:#252b37; --muted:#a3adbd; --white:#f4f6fa; --blue:#27a9e0; --cyan:#67c8e8; --red:#e7354d; }
+    * { box-sizing:border-box }
+    body { margin:0; min-height:100vh; font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--white); background:radial-gradient(ellipse at 80% -15%,#183044 0,transparent 42%),var(--bg); }
+    main { width:min(1120px, calc(100% - 56px)); margin:auto; padding:38px 0 48px; }
+    header { display:flex; align-items:center; gap:16px; margin-bottom:54px; }
+    .mark { width:58px; height:58px; flex:none; }
+    .brand { font-size:25px; font-weight:800; letter-spacing:.12em; }
+    .subbrand { margin-top:2px; color:var(--muted); font-size:12px; letter-spacing:.13em; text-transform:uppercase; }
+    .hero { max-width:780px; margin:0 auto 40px; text-align:center; }
+    .eyebrow { color:#7dcdf0; font-size:12px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+    h1 { margin:11px 0 10px; font-size:clamp(42px,7vw,76px); line-height:1; letter-spacing:-.055em; }
+    .hero p { margin:0; color:var(--muted); font-size:18px; }
+    .search { display:flex; gap:10px; width:min(780px,100%); margin:27px auto 0; padding:8px; background:#121721; border:1px solid #303949; border-radius:17px; box-shadow:0 18px 60px #0005; }
+    select,input,button { font:inherit; color:var(--white); }
+    select { width:174px; padding:12px; border:0; border-right:1px solid var(--line); outline:none; background:transparent; }
+    input { min-width:0; flex:1; padding:12px 8px; border:0; outline:none; background:transparent; }
+    input::placeholder { color:#7f8999; }
+    .search button { padding:12px 22px; border:0; border-radius:11px; color:#081018; font-weight:800; background:linear-gradient(120deg,#55c1ed,#d7f5ff); cursor:pointer; }
+    .section { margin-top:46px; }
+    .section-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:15px; }
+    h2 { margin:0; font-size:18px; letter-spacing:.01em; }
+    .hint { color:var(--muted); font-size:13px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .card { min-height:142px; display:flex; align-items:center; gap:17px; padding:21px; border:1px solid var(--line); border-radius:18px; text-decoration:none; color:inherit; background:linear-gradient(145deg,#151a24,#0e1118); transition:transform .18s ease,border-color .18s ease; }
+    .card:hover,.card:focus-visible { transform:translateY(-2px); border-color:#5d718d; outline:none; }
+    .service-icon { width:49px; height:49px; flex:none; display:grid; place-items:center; border-radius:14px; background:#202938; font-size:23px; font-weight:800; }
+    .yt .service-icon { color:#ff5363; } .nf .service-icon { color:#f24b57; } .cr .service-icon { color:#ffa34d; }
+    .card strong { display:block; font-size:17px; }
+    .card small { display:block; margin-top:4px; color:var(--muted); font-size:13px; }
+    footer { display:flex; justify-content:space-between; gap:16px; margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:#7f8999; font-size:12px; }
+    @media(max-width:680px) { main{width:min(100% - 28px,540px);padding-top:24px} header{margin-bottom:38px}.grid{grid-template-columns:1fr}.card{min-height:96px}.search{flex-wrap:wrap}select{width:100%;border-right:0;border-bottom:1px solid var(--line)}.search button{padding-inline:15px}.hint{display:none}footer{flex-direction:column} }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="G5 TV mark">
+        <path d="M5 8h18L8 56H-1z" fill="#32aee3" transform="translate(5 0)"/>
+        <path d="M23 8h18L26 56H8z" fill="#68c6e6"/>
+        <path d="M41 8h18L44 56H26z" fill="#e7354d"/>
+      </svg>
+      <div><div class="brand">G5 TV</div><div class="subbrand">Streaming hub</div></div>
+    </header>
+    <section class="hero" aria-labelledby="title">
+      <div class="eyebrow">Your screen · your queue</div>
+      <h1 id="title">Find something to watch.</h1>
+      <p>Search a service or open its site in the browser.</p>
+      <form class="search" id="search-form">
+        <select id="service" aria-label="Streaming service">
+          <option value="web">Search the web</option>
+          <option value="youtube">YouTube</option>
+          <option value="netflix">Netflix</option>
+          <option value="crunchyroll">Crunchyroll</option>
+        </select>
+        <input id="query" type="search" autocomplete="off" placeholder="Search shows, movies, channels…" aria-label="Search" required>
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <section class="section" aria-labelledby="services-title">
+      <div class="section-head"><h2 id="services-title">Streaming services</h2><span class="hint">Opens the official website</span></div>
+      <div class="grid">
+        <a class="card yt" href="https://www.youtube.com/" target="_self"><span class="service-icon">▶</span><span><strong>YouTube</strong><small>Videos, channels and playlists</small></span></a>
+        <a class="card nf" href="https://www.netflix.com/" target="_self"><span class="service-icon">N</span><span><strong>Netflix</strong><small>Movies and series</small></span></a>
+        <a class="card cr" href="https://www.crunchyroll.com/" target="_self"><span class="service-icon">CR</span><span><strong>Crunchyroll</strong><small>Anime and simulcasts</small></span></a>
+      </div>
+    </section>
+    <footer><span>G5 TV · a community browser start page</span><span>Provider playback depends on the browser, codecs and account availability.</span></footer>
+  </main>
+  <script>
+    const endpoints = {
+      web: q => `https://www.google.com/search?q=${encodeURIComponent(q)}`,
+      youtube: q => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`,
+      netflix: q => `https://www.netflix.com/search?q=${encodeURIComponent(q)}`,
+      crunchyroll: q => `https://www.crunchyroll.com/search?q=${encodeURIComponent(q)}`
+    };
+    document.getElementById('search-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const q = document.getElementById('query').value.trim();
+      if (!q) return;
+      location.href = endpoints[document.getElementById('service').value](q);
+    });
+  </script>
+</body>
+</html>
